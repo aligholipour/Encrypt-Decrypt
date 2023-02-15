@@ -26,5 +26,16 @@ namespace RandomNumber.RandomNumberUtilities
 
             return new string(randomNumber.Select(x => randomGUID[x % randomGUID.Length]).ToArray());
         }
+
+        public static Guid GenerateGUIDRandomNumberCrypto()
+        {
+            using var cryptoPovider = RandomNumberGenerator.Create();
+
+            var randomNumber = new byte[16];
+
+            cryptoPovider.GetBytes(randomNumber);
+
+            return new Guid(randomNumber);
+        }
     }
 }
