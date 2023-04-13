@@ -42,5 +42,31 @@ namespace RandomNumber.Symmetric
             }
             return encrypted;
         }
+
+        public static string Decrypt(byte[] cipherText, byte[] key, byte[] iv)
+        {
+            string decrypted;
+
+            using (Aes aes = Aes.Create())
+            {
+                aes.Key = key;
+                aes.IV = iv;
+
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream ms = new MemoryStream(cipherText))
+                {
+                    using (CryptoStream cs = new CryptoStream(ms, decryptor, CryptoStreamMode.Read))
+                    {
+                        using (StreamReader sr = new StreamReader(cs))
+                        {
+                            decrypted = sr.ReadToEnd();
+                        }
+                    }
+                }
+            }
+
+            return decrypted;
+        }
     }
 }
