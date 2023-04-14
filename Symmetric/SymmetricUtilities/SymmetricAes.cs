@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace RandomNumber.Symmetric
+namespace Symmetric.SymmetricUtilities
 {
     public class SymmetricAes
     {
