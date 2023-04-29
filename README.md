@@ -8,3 +8,4 @@ A simple project that uses encryption algorithms such as AES, RSA, etc.
 
 # Features
 :white_check_mark: `RandomNumber:` Generating random numbers in the form of bytes, strings, and GUID.<br />
+:white_check_mark: `SymmetricAes:` Key generation and Initialization Vector, along with Encrypt and Decrypt .<br />
